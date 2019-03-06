@@ -21,6 +21,7 @@ public class PT_Lab1 {
         String path;
         File rootFile;
         System.out.println("Enter a valid path to a directory:");
+        
         while(true) {
             path = reader.nextLine();
             rootFile = new File(path);
@@ -30,9 +31,11 @@ public class PT_Lab1 {
                 System.out.println("Invalid path. Try again.");
         }
         
-        DiskDirectory root = new DiskDirectory(path);
-        System.out.println(rootFile.lastModified());
+        DiskElement root = new DiskDirectory(rootFile);
+        path = null; // gc
+        rootFile = null; // gc
         
+        root.print();
     }
     
 }

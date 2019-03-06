@@ -13,9 +13,19 @@ import java.io.File;
 public abstract class DiskElement {
     protected File file;
     
-    protected abstract void print(int depth);
+    public DiskElement() { file = new File(""); }
+    public DiskElement(File x) { file = x; }
+    public DiskElement(String path) { file = new File(path); }
     
-    public void print() { print(0); };
+    protected void print(int depth) {
+        for(int i = 0; i < depth; i++) {
+            System.out.print("-");
+        }
+        
+        System.out.println(file.getName());
+    }
+    
+    public void print() { print(0); }
     
     
 }
