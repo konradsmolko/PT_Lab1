@@ -9,6 +9,7 @@ import java.io.File;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Set;
 /**
  *
  * @author Vuks
@@ -16,6 +17,7 @@ import java.util.Date;
 public abstract class DiskElement implements Comparable<DiskElement> {
     protected File file;
     protected char what;
+    
     static DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");// HH:mm:ss");
     
     //public DiskElement() { file = new File(""); } // ten konstr. nie ma sensu
@@ -28,17 +30,16 @@ public abstract class DiskElement implements Comparable<DiskElement> {
             dep += ("-");
         }
         Date lastEdit = new Date(file.lastModified());
-        String prnt = String.format("%s%-40s %c %s", dep, file.getName(),
-                what, dateFormat.format(lastEdit));
+        String prnt = String.format("%s%-40s %c %s %d", dep, file.getName(),
+                what, dateFormat.format(lastEdit), file.length());
         System.out.println(prnt);
     }
     
     public void print() { print(0); }
-
+    public abstract void swap();
+    
     @Override
-    public int compareTo(DiskElement o) {
-        return this.file.getName().compareTo(o.file.getName());
-    }
+    public abstract int compareTo(DiskElement o);
     
     
 }

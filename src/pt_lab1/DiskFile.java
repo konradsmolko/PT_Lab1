@@ -15,4 +15,18 @@ public final class DiskFile extends DiskElement {
     //public DiskFile() { super(); what = 'P'; }
     public DiskFile(File x) { super(x); what = 'P'; }
     public DiskFile(String path) { super(path); what = 'P'; }
+
+    @Override
+    public int compareTo(DiskElement o) {
+        if(o instanceof DiskDirectory) {
+            return -1;
+        } else {
+            return (int) (this.file.length() - o.file.length());
+        }
+    }
+
+    @Override
+    public void swap() {
+        
+    }
 }

@@ -42,6 +42,16 @@ public final class DiskDirectory extends DiskElement {
         }
     }
     
+    public void swap() {
+        children.forEach((x) -> {
+            x.swap();
+        });
+        DiskElementComparator comp = new DiskElementComparator();
+        Set<DiskElement> tmp = new TreeSet<>(comp);
+        tmp.addAll(children);
+        children = tmp;
+    }
+    
     @Override
     protected void print(int depth) {
         super.print(depth);
@@ -50,4 +60,18 @@ public final class DiskDirectory extends DiskElement {
             x.print(depth + 1);
         });
     };
+
+    @Override
+    public int compareTo(DiskElement o) {
+        if(o instanceof DiskFile) {
+            return 1;
+        } else if(o instanceof DiskDirectory) {
+            return compareTo((DiskDirectory) o);
+        }
+        return 0;
+    }
+    
+    public int compareTo(DiskDirectory o) {
+        return this.children.size() - o.children.size();
+    }
 }

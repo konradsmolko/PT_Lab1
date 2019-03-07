@@ -31,10 +31,10 @@ public class PT_Lab1 {
                 System.out.println("Invalid path. Try again.");
         }
         
-        DiskElement root = new DiskDirectory(rootFile);
-        path = null; // gc
-        rootFile = null; // gc
+        DiskDirectory root = new DiskDirectory(rootFile);
         
+        //root.print();
+        root.swap();
         root.print();
     }
     
