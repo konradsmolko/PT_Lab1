@@ -13,7 +13,7 @@ import java.util.Date;
  *
  * @author Vuks
  */
-public abstract class DiskElement {
+public abstract class DiskElement implements Comparable<DiskElement> {
     protected File file;
     protected char what;
     static DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");// HH:mm:ss");
@@ -34,6 +34,11 @@ public abstract class DiskElement {
     }
     
     public void print() { print(0); }
+
+    @Override
+    public int compareTo(DiskElement o) {
+        return this.file.getName().compareTo(o.file.getName());
+    }
     
     
 }

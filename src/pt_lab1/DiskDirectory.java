@@ -6,8 +6,8 @@
 package pt_lab1;
 
 import java.io.File;
-import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 /**
  *
@@ -21,14 +21,14 @@ public final class DiskDirectory extends DiskElement {
     public DiskDirectory(String path) {
         super(path);
         what = 'K';
-        children = new HashSet<>();
+        children = new TreeSet<>();
         update();
     }
     
     public DiskDirectory(File x) {
         super(x);
         what = 'K';
-        children = new HashSet<>();
+        children = new TreeSet<>();
         update();
     }
     
