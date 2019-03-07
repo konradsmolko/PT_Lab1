@@ -18,7 +18,7 @@ public abstract class DiskElement implements Comparable<DiskElement> {
     protected char what;
     static DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");// HH:mm:ss");
     
-    public DiskElement() { file = new File(""); }
+    //public DiskElement() { file = new File(""); } // ten konstr. nie ma sensu
     public DiskElement(File x) { file = x; }
     public DiskElement(String path) { file = new File(path); }
     

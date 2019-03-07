@@ -12,7 +12,7 @@ import java.io.File;
  * @author Vuks
  */
 public final class DiskFile extends DiskElement {
-    public DiskFile() { super(); what = 'P'; }
+    //public DiskFile() { super(); what = 'P'; }
     public DiskFile(File x) { super(x); what = 'P'; }
     public DiskFile(String path) { super(path); what = 'P'; }
 }

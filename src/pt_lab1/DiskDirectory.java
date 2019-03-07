@@ -16,7 +16,7 @@ import java.util.TreeSet;
 public final class DiskDirectory extends DiskElement {
     Set<DiskElement> children;
     
-    public DiskDirectory() { super(); what = 'K'; }
+    //public DiskDirectory() { super(); what = 'K'; }
     
     public DiskDirectory(String path) {
         super(path);
